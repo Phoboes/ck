@@ -1,0 +1,37 @@
+.main {
+    h1 {
+        font-weight: bold;
+        font-size: 2.25rem;
+        margin-bottom: 0.5em;
+    }
+    h2 {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 0.5em;
+    }
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: 0.5em;
+    }
+    margin: 0 auto;
+    .wrapper {
+        text-align: left;
+        p {
+            margin: 0.5em 0;
+        }
+        ul {
+            // border: 1px solid red;
+            text-align: left;
+            // width: 50%;
+            margin: 0 auto;
+            li {
+                margin-left: 1.5em;
+                list-style: disc;
+            }
+        }
+    }
+}
