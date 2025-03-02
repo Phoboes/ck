@@ -40,9 +40,6 @@ export default async function getHomePage(): Promise<HomePageData> {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
         },
-        next: {
-          revalidate: 0,
-        },
       },
     )
 
