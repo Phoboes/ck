@@ -7,7 +7,7 @@ interface Media {
 
 interface ServiceCardData {
   title: string
-  image: Media
+  image: Media[]
   description: string
 }
 

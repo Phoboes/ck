@@ -19,7 +19,6 @@ export default function ServiceCard({
 }: {
   serviceCard: ServiceCardData;
 }) {
-  console.log(serviceCard);
   return (
     <div
       className={`md:w-1/5 flex flex-col items-center relative min-w-[300px] rounded-md mt-4 overflow-hidden shadow-lg ${styles.serviceCard}`}
