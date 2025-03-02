@@ -27,9 +27,6 @@ export default async function getContact(): Promise<ContactData> {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
         },
-        next: {
-          revalidate: 0, // disable cache revalidation
-        },
       },
     )
 
