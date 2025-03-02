@@ -12,7 +12,7 @@ export default function ContactButtons({
   return (
     <>
       {phoneNumber && email ? (
-        <div className="flex flex-row justify-around my-12 pb-12 max-w-2xl mx-auto actionButtons">
+        <div className="flex flex-row justify-around my-12 pb-12 max-w-4xl mx-auto actionButtons">
           <a
             href={`tel:${phoneNumber}`}
             className="flex flex-row py-4 px-4 md:px-8 hover:shadow-lg shadow-gray-800 rounded-2xl bg-gray-400 text-white bold hover:text-gray-100 hover:bg-gray-500 just"

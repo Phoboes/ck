@@ -1,13 +1,13 @@
 import getHomePage from "../lib/getHomePage";
 import getContact from "../lib/getContact";
 import Image from "next/image";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
+import ServiceCards from "./components/ServiceCards/ServiceCards";
 import ContactButtons from "./components/ContactButtons";
 import styles from "./page.module.scss";
 import { Metadata } from "next";
 const data = (await getHomePage()) as HomePageData;
 const contactData = (await getContact()) as ContactData;
-
 interface Media {
   name: string;
   caption: string;
@@ -77,10 +77,10 @@ export default async function Home() {
   return (
     <>
       <div className="flex flex-col">
-        <main className="flex-grow mx-auto shadow-lg pb-8 border border-purple-700 w-full">
+        <main className="flex-grow mx-auto shadow-lg pb-8 w-full">
           {data.title ? (
             <h1
-              className={`text-3xl md:text-5xl lg:text-6xl py-8 font-extrabold absolute top-1/4 md:top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center ${styles.title}`}
+              className={`text-3xl md:text-5xl lg:text-6xl py-8 font-extrabold absolute top-40 md:top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-full w-full text-center ${styles.title}`}
             >
               {data.title}
             </h1>
@@ -99,7 +99,7 @@ export default async function Home() {
               </div>
             ) : null}
             {data.content ? (
-              <p className="whitespace-pre-wrap px-4 max-w-2xl mx-auto py-8 text-sm md:text-base">
+              <p className="whitespace-pre-wrap px-4 max-w-4xl mx-auto py-8 text-sm md:text-base">
                 {data.content}
               </p>
             ) : (
@@ -113,15 +113,16 @@ export default async function Home() {
             phoneNumber={contactData.phoneNumber}
           />
           {data.secondaryTitle ? (
-            <h1 className="text-2xl md:text-4xl font-bold ">
+            <h1 className="text-2xl md:text-4xl font-bold">
               {data.secondaryTitle}
             </h1>
           ) : null}
-          {data.secondaryContent ? (
-            <p className="whitespace-pre-wrap px-4 max-w-2xl mx-auto py-8 text-sm md:text-base">
+          {/* {data.secondaryContent ? (
+            <p className="whitespace-pre-wrap px-4 max-w-4xl mx-auto py-8 text-sm md:text-base">
               {data.secondaryContent}
             </p>
-          ) : null}
+          ) : null} */}
+          <ServiceCards />
         </main>
       </div>
     </>

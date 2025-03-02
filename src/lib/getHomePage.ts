@@ -28,12 +28,6 @@ export default async function getHomePage(): Promise<HomePageData> {
   const query = createPopulateQuery(['landingPageImage', 'seo'])
 
   try {
-    console.log('Strapi URL:', process.env.NEXT_PUBLIC_STRAPI_URL)
-    console.log(
-      'API URL being called:',
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home?${query}`,
-    )
-
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home?${query}`,
       {
@@ -43,8 +37,6 @@ export default async function getHomePage(): Promise<HomePageData> {
       },
     )
 
-    console.log('Response status:', response.status)
-
     if (!response.ok) {
       const errorText = await response.text()
       console.error('Error response:', errorText)
@@ -52,7 +44,6 @@ export default async function getHomePage(): Promise<HomePageData> {
     }
 
     const res = await response.json()
-    console.log('Response structure:', Object.keys(res))
 
     return {
       title: res.data.title,

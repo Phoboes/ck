@@ -37,10 +37,14 @@ export default async function getMetaImages(): Promise<MetaDataMedia> {
 
     return {
       favicon: {
-        url: `${process.env.NEXT_PUBLIC_STRAPI_URL}${res.data.favicon.url}`,
+        url: `${process.env.NEXT_PUBLIC_STRAPI_URL}${
+          res.data.favicon?.url || ''
+        }`,
       },
       shareImage: {
-        url: `${process.env.NEXT_PUBLIC_STRAPI_URL}${res.data.shareImage.url}`,
+        url: `${process.env.NEXT_PUBLIC_STRAPI_URL}${
+          res.data.shareImage?.url || ''
+        }`,
       },
     }
   } catch (e) {
