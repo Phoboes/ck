@@ -89,7 +89,7 @@ export default async function Home() {
             {data.landingPageImage ? (
               <div className="imageWrap mx-auto mb-8 overflow-hidden w-full">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.landingPageImage.url}`}
+                  src={`${data.landingPageImage.url}`}
                   width={1000}
                   height={1000}
                   className="w-full h-[300px] md:h-[500px] object-cover max-w-[800px] md:max-w-none "
