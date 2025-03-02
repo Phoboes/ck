@@ -26,56 +26,47 @@ const createPopulateQuery = (fields: string[]) => {
 
 export default async function getHomePage(): Promise<HomePageData> {
   const query = createPopulateQuery(['landingPageImage', 'seo'])
-  const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home?${query}`
 
   try {
-    console.log('Fetching from URL:', url)
+    console.log('Strapi URL:', process.env.NEXT_PUBLIC_STRAPI_URL)
+    console.log(
+      'API URL being called:',
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home?${query}`,
+    )
 
-    if (!process.env.NEXT_PUBLIC_STRAPI_URL) {
-      throw new Error('NEXT_PUBLIC_STRAPI_URL is not defined')
-    }
-    if (!process.env.STRAPI_API_TOKEN) {
-      throw new Error('STRAPI_API_TOKEN is not defined')
-    }
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home?${query}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+        },
+        next: {
+          revalidate: 0,
+        },
+      },
+    )
 
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-      },
-      next: {
-        revalidate: 3600, // Changed to 1 hour to match page revalidation
-      },
-    })
+    console.log('Response status:', response.status)
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error('Response not OK:', {
-        status: response.status,
-        statusText: response.statusText,
-        body: errorText,
-      })
-      throw new Error(
-        `Failed to fetch homepage data: ${response.status} ${response.statusText}`,
-      )
+      console.error('Error response:', errorText)
+      throw new Error('Failed to fetch homepage data')
     }
 
     const res = await response.json()
-
-    if (!res.data) {
-      console.error('No data in response:', res)
-      throw new Error('No data returned from Strapi')
-    }
+    console.log('Response structure:', Object.keys(res))
 
     return {
-      title: res.data.attributes.title,
-      landingPageImage: res.data.attributes.landingPageImage,
-      content: res.data.attributes.content,
-      secondaryTitle: res.data.attributes.secondaryTitle,
-      secondaryContent: res.data.attributes.secondaryContent,
-      seo: res.data.attributes.seo,
+      title: res.data.title,
+      landingPageImage: res.data.landingPageImage,
+      content: res.data.content,
+      secondaryTitle: res.data.secondaryTitle,
+      secondaryContent: res.data.secondaryContent,
+      seo: res.data.seo,
     }
   } catch (e) {
-    console.error('Error fetching homepage:', e)
+    console.error('Fetch error:', e)
     throw e
   }
 }
