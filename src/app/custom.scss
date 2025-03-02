@@ -7,30 +7,38 @@
     font-style: normal;
 }
 
+:root {
+    --color-primary: #fcfaf7;
+    --color-primary-inverted: #c2d5d6;
+    --color-secondary: #e49c30;
+    --backgroundPrimary: #202430;
+    --backgroundSecondary: #2d3441;
+    --buttonPrimary: #d46f2c;
+    --buttonSecondary: #e05b37;
+}
+
 .imageWrap {
-    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px 0 rgba(13, 27, 42, 0.4);
 }
 header {
-    background-color: #0d1b2a;
-    color: #dddfe1;
+    display: none;
 }
 
 .navFooter {
-    background-color: #0d1b2a;
+    background-color: var(--backgroundPrimary);
 
     h1,
     p,
     svg {
-        color: #dddfe1;
+        color: var(--color-primary);
     }
 
     p {
         &:hover {
             a,
             svg {
-                color: #415a77;
+                color: var(--color-primary);
             }
         }
     }
@@ -38,31 +46,31 @@ header {
 
 body {
     font-family: "Montserrat";
-    background-color: #cdd2db;
+    background-color: var(--backgroundPrimary);
+    color: var(--color-primary);
 }
 .actionButtons {
-    border-bottom: 1px solid #778da9;
+    border-bottom: 1px solid var(--color-primary);
 
     a {
-        color: #dddfe1;
-        background-color: #415a77;
+        color: var(--color-primary-inverted);
+        background-color: var(--buttonPrimary);
 
         &:hover {
-            color: #dddfe1;
-            background-color: #1b263b;
+            background-color: var(--buttonSecondary);
         }
     }
 }
 
 .pageFonts {
     p {
-        color: #0d1b2a;
-        border-top: 1px solid #778da9;
-        border-bottom: 1px solid #778da9;
-        background-color: rgb(227, 231, 235);
+        color: var(--color-primary);
+        border-top: 1px solid var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
+        // background-color: rgb(227, 231, 235);
     }
 }
 
 main {
-    background-color: #e5e8eb;
+    background-color: var(--backgroundSecondary);
 }

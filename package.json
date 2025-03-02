@@ -15,7 +15,10 @@
     "lint:fix": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "migrate": "tsx src/db/migrate.ts"
+    "migrate": "tsx src/db/migrate.ts",
+    "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
+    "static-build": "cross-env NEXT_PUBLIC_BUILD_MODE=static next build"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",

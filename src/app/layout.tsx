@@ -51,7 +51,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(await getMetaImages());
   return (
     <html lang="en">
       <body className={`min-h-screen antialiased text-center m-auto`}>

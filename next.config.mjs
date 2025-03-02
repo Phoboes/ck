@@ -5,7 +5,9 @@ const nextConfig = {
     config.resolve.extensions = [...config.resolve.extensions, ".ts", ".tsx"];
     return config;
   },
+  output: "export",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

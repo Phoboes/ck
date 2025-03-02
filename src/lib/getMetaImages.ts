@@ -21,6 +21,16 @@ export default async function getMetaImages(): Promise<MetaDataMedia> {
 
   try {
     if (!response.ok) {
+      if (response.status === 404) {
+        return {
+          favicon: {
+            url: '/images/default-meta-image.png',
+          },
+          shareImage: {
+            url: '/images/default-meta-image.png',
+          },
+        }
+      }
       throw new Error('Failed to fetch homepage data')
     }
     const res = await response.json()

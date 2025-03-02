@@ -19,18 +19,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as ValidChangeFreq,
       priority: 1,
     },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as ValidChangeFreq,
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as ValidChangeFreq,
-      priority: 1,
-    },
+    // {
+    //   url: `${baseUrl}/about`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'daily' as ValidChangeFreq,
+    //   priority: 1,
+    // },
+    // {
+    //   url: `${baseUrl}/services`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'daily' as ValidChangeFreq,
+    //   priority: 1,
+    // },
   ]
 
   return routes
