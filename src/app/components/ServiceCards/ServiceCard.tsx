@@ -21,7 +21,7 @@ export default function ServiceCard({
 }) {
   return (
     <div
-      className={`md:w-1/5 flex flex-col items-center relative min-w-[300px] rounded-md mt-4 overflow-hidden shadow-lg ${styles.serviceCard}`}
+      className={`mx-1 md:w-1/5 flex flex-col items-center relative min-w-[300px] rounded-md mt-4 overflow-hidden shadow-lg ${styles.serviceCard}`}
     >
       <h3 className={`w-full text-xl p-3 font-bold top-0 md:top-10 absolute`}>
         {serviceCard.title}

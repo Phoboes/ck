@@ -56,13 +56,13 @@ export default async function Footer({
         <div className=" px-8 pb-4 text-center min-w-80 max-w-100 md:text-left md:py-4 md:w-1/2 md:ml-12">
           {footerData.email ? (
             <p className="flex flex-row py-1 mr-8">
-              <Mail className="mr-4" />
+              <Mail className="mr-4 min-w-[24px] flex-shrink-0" />
               <a href={`mailto:${footerData.email}`}>{footerData.email}</a>
             </p>
           ) : null}
           {footerData.email ? (
             <p className="flex flex-row py-1 mr-8">
-              <Phone className="mr-4" />
+              <Phone className="mr-4 min-w-[24px] flex-shrink-0" />
               <a href={`tel:${footerData.phoneNumber}`}>
                 {footerData.phoneNumber}
               </a>

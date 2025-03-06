@@ -51,8 +51,6 @@ body {
     color: var(--color-primary);
 }
 .actionButtons {
-    border-bottom: 1px solid var(--color-primary);
-
     a {
         color: var(--color-primary-inverted);
         background-color: var(--buttonPrimary);
@@ -66,8 +64,8 @@ body {
 .pageFonts {
     p {
         color: var(--color-primary);
-        border-top: 1px solid var(--color-primary);
-        border-bottom: 1px solid var(--color-primary);
+        // border-top: 1px solid var(--color-primary);
+        // border-bottom: 1px solid var(--color-primary);
         // background-color: rgb(227, 231, 235);
     }
 }

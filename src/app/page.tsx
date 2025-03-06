@@ -77,17 +77,10 @@ export default async function Home() {
   return (
     <>
       <div className="flex flex-col">
-        <main className="flex-grow mx-auto shadow-lg pb-8 w-full">
-          {data.title ? (
-            <h1
-              className={`text-3xl md:text-5xl lg:text-6xl py-8 font-extrabold absolute top-40 md:top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-full w-full text-center ${styles.title}`}
-            >
-              {data.title}
-            </h1>
-          ) : null}
+        <main className="flex-grow mx-auto shadow-lg pb-8 w-full md:min-w-[1000px]">
           <div className="flex flex-col justify-center text-center pageFonts">
             {data.landingPageImage ? (
-              <div className="imageWrap mx-auto mb-8 overflow-hidden w-full">
+              <div className="imageWrap mx-auto mb-8 overflow-hidden w-full relative">
                 <Image
                   src={`${data.landingPageImage.url}`}
                   width={1000}
@@ -96,12 +89,24 @@ export default async function Home() {
                   title={data.landingPageImage.name}
                   alt={data.landingPageImage.alternativeText}
                 />
+                {data.title ? (
+                  <h1
+                    className={`text-3xl md:text-5xl lg:text-6xl py-8 font-extrabold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center ${styles.title}`}
+                  >
+                    {data.title}
+                  </h1>
+                ) : null}
               </div>
             ) : null}
+            <div className="w-full">
+              <hr className="max-w-[1000px] mx-auto my-8" />
+            </div>
             {data.content ? (
-              <p className="whitespace-pre-wrap px-4 max-w-4xl mx-auto py-8 text-sm md:text-base">
-                {data.content}
-              </p>
+              <>
+                <p className="whitespace-pre-wrap px-4 max-w-4xl mx-auto py-8 text-sm md:text-base">
+                  {data.content}
+                </p>
+              </>
             ) : (
               <h1 className="text-center text-xl font-bold align-middle">
                 You have not provided any data yet.
@@ -112,16 +117,17 @@ export default async function Home() {
             email={contactData.email}
             phoneNumber={contactData.phoneNumber}
           />
+          <hr className="max-w-[1000px] mx-auto my-8" />
           {data.secondaryTitle ? (
             <h1 className="text-2xl md:text-4xl font-bold">
               {data.secondaryTitle}
             </h1>
           ) : null}
-          {/* {data.secondaryContent ? (
+          {data.secondaryContent ? (
             <p className="whitespace-pre-wrap px-4 max-w-4xl mx-auto py-8 text-sm md:text-base">
               {data.secondaryContent}
             </p>
-          ) : null} */}
+          ) : null}
           <ServiceCards />
         </main>
       </div>

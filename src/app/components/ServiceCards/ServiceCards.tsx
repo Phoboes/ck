@@ -6,7 +6,7 @@ export default async function ServiceCards() {
     <ServiceCard key={Math.random()} serviceCard={serviceCard} />
   ));
   return (
-    <div className="flex flex-col md:flex-row m-auto md:justify-around w-full pt-6 max-w-[1200px]">
+    <div className="flex flex-col md:flex-row m-auto md:justify-around w-full pt-6 md:max-w-[1200px]">
       {serviceCards}
     </div>
   );
