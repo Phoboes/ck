@@ -1,0 +1,8 @@
+.actionButtons {
+    color: var(--color-primary-inverted);
+    background-color: var(--buttonPrimary);
+
+    &:hover {
+        background-color: var(--buttonSecondary);
+    }
+}

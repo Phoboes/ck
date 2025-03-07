@@ -23,7 +23,7 @@ export default function ServiceCard({
     <div
       className={`mx-1 md:w-1/5 flex flex-col items-center relative min-w-[300px] rounded-md mt-4 overflow-hidden shadow-lg ${styles.serviceCard}`}
     >
-      <h3 className={`w-full text-xl p-3 font-bold top-0 md:top-10 absolute`}>
+      <h3 className={`w-full text-xl p-3 top-0 md:top-10 absolute`}>
         {serviceCard.title}
       </h3>
       <div className="w-full h-[300px]">

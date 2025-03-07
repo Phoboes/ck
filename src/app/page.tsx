@@ -3,7 +3,7 @@ import getContact from "../lib/getContact";
 import Image from "next/image";
 // import Footer from "./components/Footer";
 import ServiceCards from "./components/ServiceCards/ServiceCards";
-import ContactButtons from "./components/ContactButtons";
+import ContactButtons from "./components/ContactButtons/ContactButtons";
 import styles from "./page.module.scss";
 import { Metadata } from "next";
 const data = (await getHomePage()) as HomePageData;
@@ -98,9 +98,6 @@ export default async function Home() {
                 ) : null}
               </div>
             ) : null}
-            <div className="w-full">
-              <hr className="max-w-[1000px] mx-auto my-8" />
-            </div>
             {data.content ? (
               <>
                 <p className="whitespace-pre-wrap px-4 max-w-4xl mx-auto py-8 text-sm md:text-base">

@@ -7,6 +7,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Roboto";
+    src:
+        url("./styles/fonts/Roboto-ExtraBold.ttf") format("truetype"),
+        url("./styles/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
     --color-primary: #fcfaf7;
     --color-primary-inverted: #c2d5d6;
@@ -50,24 +58,15 @@ body {
     background-color: var(--backgroundPrimary);
     color: var(--color-primary);
 }
-.actionButtons {
-    a {
-        color: var(--color-primary-inverted);
-        background-color: var(--buttonPrimary);
-
-        &:hover {
-            background-color: var(--buttonSecondary);
-        }
-    }
-}
 
 .pageFonts {
     p {
         color: var(--color-primary);
-        // border-top: 1px solid var(--color-primary);
-        // border-bottom: 1px solid var(--color-primary);
-        // background-color: rgb(227, 231, 235);
     }
+}
+
+h1 {
+    font-family: "Roboto";
 }
 
 main {
