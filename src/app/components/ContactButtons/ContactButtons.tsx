@@ -10,7 +10,6 @@ export default function ContactButtons({
   phoneNumber,
   email,
 }: ContactButtonsProps) {
-  console.log(styles);
   return (
     <>
       {phoneNumber && email ? (

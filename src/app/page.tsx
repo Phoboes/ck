@@ -17,6 +17,7 @@ interface Media {
 
 interface HomePageData {
   title: string;
+  titleImage: Media;
   landingPageImage: Media;
   content: string;
   secondaryTitle: string;
@@ -37,10 +38,6 @@ interface SeoData {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  // const faviconUrl = data.seo?.[0]?.favicon?.url
-  //   ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${data.seo?.[0]?.favicon?.url}`
-  //   : undefined;
-  // console.log(faviconUrl);
   return {
     title: data.seo?.[0]?.metaTitle ?? "Our Services",
     description: data.seo?.[0]?.metaDescription ?? "",
@@ -89,13 +86,23 @@ export default async function Home() {
                   title={data.landingPageImage.name}
                   alt={data.landingPageImage.alternativeText}
                 />
-                {data.title ? (
+                {/* {data.title ? (
                   <h1
                     className={`text-3xl md:text-5xl lg:text-6xl py-8 font-extrabold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center ${styles.title}`}
                   >
                     {data.title}
                   </h1>
-                ) : null}
+                ) : null} */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full bg-blue-100/40 flex items-center justify-center max-h-[400px]">
+                  <Image
+                    src={`${data.titleImage.url}`}
+                    width={1000}
+                    height={400}
+                    className="w-full h-auto max-w-[80%] max-h-[450px]"
+                    title={data.titleImage.name}
+                    alt={data.titleImage.alternativeText}
+                  />
+                </div>
               </div>
             ) : null}
             {data.content ? (

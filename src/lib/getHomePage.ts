@@ -7,6 +7,7 @@ interface Media {
 
 interface HomePageData {
   title: string
+  titleImage: Media
   landingPageImage: Media
   content: string
   secondaryTitle: string
@@ -25,7 +26,7 @@ const createPopulateQuery = (fields: string[]) => {
 }
 
 export default async function getHomePage(): Promise<HomePageData> {
-  const query = createPopulateQuery(['landingPageImage', 'seo'])
+  const query = createPopulateQuery(['landingPageImage', 'seo', 'titleImage'])
 
   try {
     const response = await fetch(
@@ -47,6 +48,7 @@ export default async function getHomePage(): Promise<HomePageData> {
 
     return {
       title: res.data.title,
+      titleImage: res.data.titleImage,
       landingPageImage: res.data.landingPageImage,
       content: res.data.content,
       secondaryTitle: res.data.secondaryTitle,
